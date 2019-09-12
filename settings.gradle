@@ -1,0 +1,2 @@
+include ':camerapush', ':library', ':appupdate', ':mlicxtest', ':app', ':mlicxapp'
+rootProject.name='LiveTest'
