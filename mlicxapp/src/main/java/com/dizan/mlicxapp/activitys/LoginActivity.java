@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dizan.mlicxapp.R;
+import com.dizan.mlicxapp.utils.UserUtils;
 import com.dizan.mlicxapp.views.InputView;
 
 public class LoginActivity extends BaseActivity {
@@ -46,9 +47,9 @@ public class LoginActivity extends BaseActivity {
         String password = mInputPassword.getInputStr();
 
         // 验证用户输入是否合法
-//        if(!UserUtils.validateLogin(this, phone, password)) {
-//            return;
-//        }
+        if(!UserUtils.validateLogin(this, phone, password)) {
+            return;
+        }
 
         // 跳转到应用主页
         Intent intent = new Intent(this, MainActivity.class);

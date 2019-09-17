@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.blankj.utilcode.util.Utils;
 
+import io.realm.Realm;
+
 public class MyApplication extends Application {
 
     @Override
@@ -11,5 +13,6 @@ public class MyApplication extends Application {
         super.onCreate();
 
         Utils.init(this);
+        Realm.init(this);
     }
 }

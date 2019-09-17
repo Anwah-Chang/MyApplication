@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.dizan.mlicxapp.R;
+import com.dizan.mlicxapp.utils.UserUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,13 +28,17 @@ public class WelcomeActivity extends BaseActivity {
      * 初始化
      */
     private void init() {
+        final boolean isLogin = UserUtils.validateUserLogin(this);
         mTimer = new Timer();
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Log.d("WelcomActivity", "当前线程为 ：" + Thread.currentThread());
-               // toMain();
-                toLogin();
+                if(isLogin) {
+                    toMain();
+                } else {
+                    toLogin();
+                }
             }
         }, 3 * 1000);
     }

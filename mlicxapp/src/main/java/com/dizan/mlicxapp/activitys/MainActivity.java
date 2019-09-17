@@ -1,7 +1,10 @@
 package com.dizan.mlicxapp.activitys;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.widget.ImageView;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +14,7 @@ import com.dizan.mlicxapp.R;
 import com.dizan.mlicxapp.adapters.OnliveGridAdapter;
 import com.dizan.mlicxapp.adapters.OnliveListAdapter;
 import com.dizan.mlicxapp.views.GridSpaceItemDecoration;
+import com.dizan.mlicxapp.views.ImageBannerViewGroup;
 
 public class MainActivity extends BaseActivity {
 
@@ -18,6 +22,14 @@ public class MainActivity extends BaseActivity {
     private OnliveGridAdapter mGridAdapter;
     private OnliveListAdapter mListAdapter;
 
+    private ImageBannerViewGroup mGroup;
+    private int[] ids = new int[] {
+      R.mipmap.banner,
+            R.mipmap.banner1,
+            R.mipmap.banner2
+    };
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +41,17 @@ public class MainActivity extends BaseActivity {
     /**
      * 初始化View
      */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initView() {
+
+        mGroup = fd(R.id.image_group);
+        //mGroup.setNestedScrollingEnabled(false);
+        for(int i = 0; i < ids.length;i++) {
+            ImageView iv = new ImageView(this);
+            iv.setImageResource(ids[i]);
+            mGroup.addView(iv);
+        }
+
         initNavBar(false,"美丽畅想", true);
 
         mRvGrid = fd(R.id.rv_grid);

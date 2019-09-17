@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.dizan.mlicxapp.R;
 
 
@@ -39,15 +38,15 @@ public class OnliveListAdapter extends RecyclerView.Adapter<OnliveListAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         setRecyclerViewHeight();
 
-        Glide.with(mContext)
-                .load("http://www.anwahh.xyz:8080/photos/img1.jpg")
-                .into(viewHolder.ivIcon);
+//        Glide.with(mContext)
+//                .load("http://106.15.226.123:8080/photos/img1.jpg")
+//                .into(viewHolder.ivIcon);
 
     }
 
     @Override
     public int getItemCount() {
-        return 12;
+        return 8;
     }
 
     /**

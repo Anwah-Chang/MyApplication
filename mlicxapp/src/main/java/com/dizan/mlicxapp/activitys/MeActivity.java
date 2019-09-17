@@ -3,11 +3,15 @@ package com.dizan.mlicxapp.activitys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.dizan.mlicxapp.R;
+import com.dizan.mlicxapp.helps.UserHelper;
 import com.dizan.mlicxapp.utils.UserUtils;
 
 public class MeActivity extends BaseActivity {
+
+    private TextView mTvUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,9 @@ public class MeActivity extends BaseActivity {
      */
     private void initView() {
         initNavBar(true, "个人中心", false);
+
+        mTvUser = fd(R.id.tv_user);
+        mTvUser.setText("用户名：" + UserHelper.getInstance().getPhone());
     }
 
     /**
